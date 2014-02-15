@@ -1,4 +1,6 @@
 mysite/local_settings.py
-**/*.pyc
+*.pyc
 **/*~
 **/*.swp
+db.sqlite3
+Thumbs.db
