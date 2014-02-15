@@ -12,5 +12,7 @@ urlpatterns = patterns('',
 	
     url(r'^doctor/(?P<doctor_id>\d+)$', viewsModule.show_doctor, name='show_doctor'),
 	
+    url(r'^publish_case$', viewsModule.publish_case, name='publish_case'),
+	
     url(r'^admin/', include(admin.site.urls)),
 )
