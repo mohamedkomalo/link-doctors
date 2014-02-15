@@ -10,17 +10,20 @@ def index(request):
   context = RequestContext(request)
   return HttpResponse(template.render(context))
 
-def show_doctor(request, doctor_id):
-  doctor=Doctor.objects.filter(id=doctor_id).first()
+@login_required
+def share_case(request, case_id):
+  doctor=Doctor.objects.get(user_id=request.user.id)
+  case=Case.objects.get(id=case_id)
+    
+  subject=case.name
+  
 
-  if not doctor:
-	  raise Http404
-
-  template = loader.get_template('doctor.html')
+  template = loader.get_template('share_case.html')
   context = RequestContext(request, {
     'doctor': doctor,
+    'connections': doctor.get_li_doctors_connections(),
+    'subject': subject
   })
-  
   
   return HttpResponse(template.render(context))
 

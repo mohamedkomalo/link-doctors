@@ -3,6 +3,7 @@ from linkedin.models import AccessToken
 from linkedin import linkedin
 from django.contrib.auth.models import User
 from mysite.settings import *
+import re
 
 # Create your views here.
 class Doctor(models.Model):
@@ -42,6 +43,9 @@ class Doctor(models.Model):
     application = linkedin.LinkedInApplication(authentication)
     return application
     
+  def get_li_doctors_connections(self):
+    connections=self.get_li_application().get_connections()
+    return [c for c in connections['values'] if c.has_key('industry') and c['industry'] == "Computer Software"]
 
   def __str__(self):
     return self.name
@@ -49,9 +53,9 @@ class Doctor(models.Model):
 class Case(models.Model):
   doctor=models.ForeignKey(Doctor)
   name=models.CharField(max_length=200)
-  problem=models.CharField(max_length=200)
+  problem=models.TextField()
   age=models.CharField(max_length=200)
-  gendar=models.CharField(max_length=200)
+  gender=models.CharField(max_length=10)
 
   def post_on_li(self):
     pass    

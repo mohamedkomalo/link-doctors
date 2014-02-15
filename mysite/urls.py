@@ -14,7 +14,7 @@ urlpatterns = patterns('',
     # Examples:
     url(r'^$', viewsModule.index, name='index'),
     url(r'^linkedin_login$', linkedinModule.linkedin_login, name='linkedin_login'),	
-    url(r'^doctor/(?P<doctor_id>\d+)$', viewsModule.show_doctor, name='show_doctor'),
+    url(r'^case/(?P<case_id>\d+)/share/$', viewsModule.share_case, name='share_case'),
 	
     url(r'^publish_case$', viewsModule.publish_case, name='publish_case'),
 	
