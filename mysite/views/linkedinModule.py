@@ -1,8 +1,10 @@
 from mysite.models import Doctor
 from django.http import HttpResponseRedirect
+from django.contrib.auth.models import User
+from django.contrib.auth import login
 from linkedin import linkedin
 
-def login(request):
+def linkedin_login(request):
 
   # defining authentication parameters:
   API_KEY = "75ylhmbcn06a14"
@@ -15,7 +17,6 @@ def login(request):
   # url goes back to request
 
   # create authentication class:
-  #authentication = linkedin.LinkedInDeveloperAuthentication(CONSUMER_KEY, CONSUMER_SECRET, USER_TOKEN, USER_SECRET, url)
   authentication = linkedin.LinkedInAuthentication(API_KEY, API_SECRET, RETURN_URL, linkedin.PERMISSIONS.enums.values())
   
   print(authentication)  
@@ -30,10 +31,11 @@ def login(request):
     token = authentication.get_access_token()
     # save in DB
     doctor = Doctor.create_from_token(application)
-    
+    user = User.objects.get(id=doctor.user_id)
+
+    user.backend = 'django.contrib.auth.backends.ModelBackend'
+    login(request, user)
     return HttpResponseRedirect("/doctor/%s" % doctor.id)
 
   # if I dont have code, ask for another one
   return HttpResponseRedirect(authentication.authorization_url)
-
-

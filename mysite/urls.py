@@ -13,7 +13,7 @@ from mysite.views import linkedinModule
 urlpatterns = patterns('',
     # Examples:
     url(r'^$', viewsModule.index, name='index'),
-    url(r'^linkedin_login$', linkedinModule.login, name='login'),	
+    url(r'^linkedin_login$', linkedinModule.linkedin_login, name='linkedin_login'),	
     url(r'^doctor/(?P<doctor_id>\d+)$', viewsModule.show_doctor, name='show_doctor'),
 	
     url(r'^publish_case$', viewsModule.publish_case, name='publish_case'),
