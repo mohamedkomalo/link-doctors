@@ -4,7 +4,9 @@ from mysite.models import *
 from django.template import RequestContext, loader
 
 def index(request):
-	return HttpResponse("Index Page")
+  template = loader.get_template('index.html')
+  context = RequestContext(request)
+  return HttpResponse(template.render(context))
 
 def show_doctor(request, doctor_id):
   doctor=Doctor.objects.filter(id=doctor_id).first()

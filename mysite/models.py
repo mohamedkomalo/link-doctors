@@ -1,5 +1,5 @@
 from django.db import models
-
+from linkedin import linkedin
 
 # Create your views here.
 class Doctor(models.Model):
@@ -8,7 +8,8 @@ class Doctor(models.Model):
   access_token=models.CharField(max_length=200)
   
   def create_from_token(token):
-    #TODO get linkedin id and info and put it in the model attributes
+    doctor = Doctor() #TODO get linkedin id and info and put it in the model attributes
+	
 	pass
 
   def __str__(self):
