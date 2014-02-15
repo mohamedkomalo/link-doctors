@@ -1,5 +1,14 @@
-from main.models import *
+#!/usr/bin/env python
+import os
 
-d = Doctor.objects.get(pk=1)
-c = Case.objects.get(pk=1)
-c.doctor
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "settings")
+from django.contrib.auth.models import User
+
+from mysite.models import *
+
+def addDoctors():
+	d = Doctor()
+	d.name="hopa"
+	d.save()
+	
+addDoctors()
