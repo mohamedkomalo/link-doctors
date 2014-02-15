@@ -54,7 +54,11 @@ class Case(models.Model):
   gendar=models.CharField(max_length=200)
 
   def post_on_li(self):
-    pass    
+    app = self.doctor.get_li_application()
+    app.submit_share(
+      title=self.name, 
+      description=self.problem
+      )
 
   def __str__(self):
     return self.name
