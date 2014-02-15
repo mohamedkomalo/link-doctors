@@ -24,6 +24,9 @@ class Doctor(models.Model):
     doctor.save()
     return doctor
 
+  def get_li_application(self):
+    pass
+
   def __str__(self):
     return self.name
 
@@ -33,6 +36,9 @@ class Case(models.Model):
   problem=models.CharField(max_length=200)
   age=models.CharField(max_length=200)
   gendar=models.CharField(max_length=200)
+
+  def post_on_li(self):
+    pass    
 
   def __str__(self):
     return self.name
