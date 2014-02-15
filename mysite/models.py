@@ -9,8 +9,8 @@ class Doctor(models.Model):
   
   def create_from_token(token):
     doctor = Doctor() #TODO get linkedin id and info and put it in the model attributes
-	
-	pass
+    doctor.access_token=token
+    return doctor
 
   def __str__(self):
     return self.name
