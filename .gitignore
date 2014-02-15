@@ -2,3 +2,4 @@ mysite/local_settings.py
 *.pyc
 **/*~
 **/*.swp
+db.sqlite3

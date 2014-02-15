@@ -21,6 +21,7 @@ def show_doctor(request, doctor_id):
     'doctor': doctor,
   })
   
+  
   return HttpResponse(template.render(context))
 
 @login_required
