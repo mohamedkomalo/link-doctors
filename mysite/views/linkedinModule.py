@@ -29,7 +29,7 @@ def login(request):
     authentication.authorization_code = code
     token = authentication.get_access_token()
     # save in DB
-    doctor = Doctor.create_from_token(token)
+    doctor = Doctor.create_from_token(application)
     
     return HttpResponseRedirect("/doctor/%s" % doctor.id)
 
