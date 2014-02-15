@@ -48,8 +48,6 @@ def publish_case(request):
   case.doctor=doctor
   case.name=name
   case.problem=description
-  case.age=""
-  case.gendar=""
-
+  case.post_on_li()
   case.save()
   return  HttpResponse("Added")

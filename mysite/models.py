@@ -56,11 +56,10 @@ class Case(models.Model):
   def post_on_li(self):
     app = self.doctor.get_li_application()
     app.submit_share(
-      title=self.name, 
-      description=self.problem
+      comment='%s : %s' % (self.name, self.problem)
       )
 
   def __str__(self):
     return self.name
-  
-  
+
+
