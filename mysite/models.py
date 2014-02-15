@@ -58,9 +58,12 @@ class Case(models.Model):
   gender=models.CharField(max_length=10)
 
   def post_on_li(self):
-    pass    
+    app = self.doctor.get_li_application()
+    app.submit_share(
+      comment='%s : %s' % (self.name, self.problem)
+      )
 
   def __str__(self):
     return self.name
-  
-  
+
+

@@ -3,3 +3,4 @@ mysite/local_settings.py
 **/*~
 **/*.swp
 db.sqlite3
+Thumbs.db
