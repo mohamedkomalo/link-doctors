@@ -18,3 +18,8 @@ def show_doctor(request, doctor_id):
   })
   
   return HttpResponse(template.render(context))
+
+def publish_case(request):
+  template = loader.get_template('publish_case.html')
+  context = RequestContext(request)
+  return HttpResponse(template.render(context))
