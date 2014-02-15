@@ -1,5 +1,4 @@
 mysite/local_settings.py
-**/*.pyc
+*.pyc
 **/*~
 **/*.swp
-venv
