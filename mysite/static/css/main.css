@@ -4,6 +4,9 @@
    Author's custom styles
    ========================================================================== */
 
+body{
+  background-color:#eeeeee;
+}
 .centered {
     display: table;
     margin: auto;
@@ -16,13 +19,16 @@ margin-top: -29px;
   position: relative;
 }
 
+.linkedin-container {
+  top: 100px;
+  right: 10px;
+  position: absolute;
+}
+
 .linkedin-button {
-top: 185px;
-position: absolute;
 font-size: 26px;
 font-weight: bold;
 padding: 18px 20px;
-right: -206px;
 }
 
 .BigNavBar{ height: 150px;
