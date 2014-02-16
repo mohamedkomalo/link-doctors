@@ -8,9 +8,21 @@
     display: table;
     margin: auto;
 }
+#logo {
+height: 222px;
+margin-top: -29px;
+}
+.button-container {
+  position: relative;
+}
 
 .linkedin-button {
-    top : 100px;
+top: 185px;
+position: absolute;
+font-size: 26px;
+font-weight: bold;
+padding: 18px 20px;
+right: -206px;
 }
 
 .BigNavBar{ height: 150px;
