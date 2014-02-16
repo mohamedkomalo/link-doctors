@@ -1,4 +1,5 @@
 from django.http import HttpResponse
+from django.http import HttpResponseRedirect
 from django.http import Http404
 from mysite.models import *
 from django.template import RequestContext, loader
@@ -53,4 +54,4 @@ def publish_case(request):
   case.problem=description
   case.post_on_li()
   case.save()
-  return  HttpResponse("Added")
+  return HttpResponseRedirect("/case/%s/share" % case.id)

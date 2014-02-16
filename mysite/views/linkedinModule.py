@@ -28,7 +28,7 @@ def linkedin_login(request):
 
     user.backend = 'django.contrib.auth.backends.ModelBackend'
     login(request, user)
-    return HttpResponseRedirect("/doctor/%s" % doctor.id)
+    return HttpResponseRedirect("/publish_case")
 
   # if I dont have code, ask for another one
   return HttpResponseRedirect(authentication.authorization_url)
